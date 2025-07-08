@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Finansal Rapor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-4">Finansal Rapor</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Toplam Satış</th>
+                <th>Toplam Alış</th>
+                <th>Net Kâr</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${totalSales} + ' ₺'"></td>
+                <td th:text="${totalPurchases} + ' ₺'"></td>
+                <td th:text="${netProfit} + ' ₺'"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- AYLIK VERİLER TABLOSU -->
+	<h3>Aylık Satışlar</h3>
+	<table class="table table-striped">
+	    <thead>
+	        <tr><th>Ay</th><th>Satış (₺)</th></tr>
+	    </thead>
+	    <tbody>
+	        <tr th:each="entry : ${monthlySales}">
+	            <td th:text="${entry.key}"></td>
+	            <td th:text="${entry.value}"></td>
+	        </tr>
+	    </tbody>
+	</table>
+
+	<h3>Aylık Alışlar</h3>
+	<table class="table table-striped">
+	    <thead>
+	        <tr><th>Ay</th><th>Alış (₺)</th></tr>
+	    </thead>
+	    <tbody>
+	        <tr th:each="entry : ${monthlyPurchases}">
+	            <td th:text="${entry.key}"></td>
+	            <td th:text="${entry.value}"></td>
+	        </tr>
+	    </tbody>
+	</table>
+
+	<h3>Aylık Net Kâr</h3>
+	<table class="table table-striped">
+	    <thead>
+	        <tr><th>Ay</th><th>Kâr (₺)</th></tr>
+	    </thead>
+	    <tbody>
+	        <tr th:each="entry : ${monthlyProfit}">
+	            <td th:text="${entry.key}"></td>
+	            <td th:text="${entry.value}"></td>
+	        </tr>
+	    </tbody>
+	</table>
+
+
+    <a class="btn btn-secondary" href="/products">Geri Dön</a>
+</div>
+</body>
+</html>

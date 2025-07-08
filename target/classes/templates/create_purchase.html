@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ürün Alışı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container mt-5">
+    <h3>Yeni Alış Ekle</h3>
+    <form th:action="@{/purchases}" th:object="${purchase}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Ürün</label>
+            <select class="form-select" th:field="*{product.id}" required>
+                <option value="" disabled selected>Ürün Seçin</option>
+                <option th:each="product : ${products}"
+                        th:value="${product.id}"
+                        th:text="${product.name}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Adet</label>
+            <input type="number" class="form-control" th:field="*{quantity}" required min="1"/>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Birim Fiyat</label>
+            <input type="number" class="form-control" th:field="*{unitPrice}" required min="0" step="0.01"/>
+        </div>
+
+        <button type="submit" class="btn btn-success">Kaydet</button>
+        <a href="/products" class="btn btn-secondary">İptal</a>
+    </form>
+</div>
+</body>
+</html>
