@@ -1,4 +1,4 @@
-# Stock Management and Demand Forecasting Project for Micro Businesses
+# Stock Management and Demand Forecasting Project for Micro Businesses with Spring Boot
 
 ## Project Goal
 The primary goal of this project is to enable micro businesses to easily manage their inventory digitally and provide decision support for purchasing by forecasting demand based on sales data from the last 3 months. The system includes a purchase screen for bulk buying and a statistics screen that visualizes inventory data with charts. Additionally, a financial report screen is designed to give business owners quick access to income, expenses, and profit information with a single click.
